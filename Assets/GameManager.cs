@@ -5,17 +5,23 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject player;
+
+    //Pickup and Level Completion Logic
+    public int currentPickups = 0;
+    public int maxPickups = 5;
+    public bool levelComplete = false;
 
     public Text pickupText;
 
-    public int currentPickups = 0;
-    public int maximumPickups = 5;
-    [HideInInspector] public  bool levelComplete = false;
-
-    public AudioSource[] AudioSources;
+    //Audio Proximity Logic
+    public AudioSource[] audioSources;
     public float audioProximity = 5.0f;
 
+
+
+
+    // Update is called once per frame
     void Update()
     {
         LevelCompleteCheck();
@@ -24,37 +30,40 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void LevelCompleteCheck()
+    private void LevelCompleteCheck()
     {
-        if(currentPickups >= maximumPickups)
-        {
+        if (currentPickups >= maxPickups)
             levelComplete = true;
-        }
-
-        if(currentPickups < maximumPickups)
-        {
+        else
             levelComplete = false;
-        }
-        
     }
-
     private void UpdateGUI()
     {
-        pickupText.text = "Pickups: " + currentPickups + "/" + maximumPickups;
+        pickupText.text = "Pickups: " + currentPickups + "/" + maxPickups;
     }
 
-    public void PlayAudioSamples()
+    //Loop for playing audio proximity events - AudioSource based
+    private void PlayAudioSamples()
     {
-        for(int index = 0; index < AudioSources.Length; index++)
+        for (int i = 0; i < audioSources.Length; i++)
         {
-            if(Vector3.Distance(Player.transform.position, AudioSources[index].transform.position) <= audioProximity)
+            if (Vector3.Distance(player.transform.position, audioSources[i].transform.position) <= audioProximity)
             {
-                if(!AudioSources[index].isPlaying)
+                if (!audioSources[i].isPlaying)
                 {
-                    AudioSources[index].Play();
-                    print("PLAYING");
+                    audioSources[i].Play();
                 }
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
