@@ -21,7 +21,7 @@ public class LevelSwitch : MonoBehaviour
             if(gameManager.levelComplete == true)
             {
                 
-                SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+                SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
             }
         }
     } 
