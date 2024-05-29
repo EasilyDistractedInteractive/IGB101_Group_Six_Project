@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Asher J/Scenes/Pagoda/Pagoda.unity
     guid: 4dae7544cdab50848b69732007be249b
   - enabled: 1
-    path: Assets/Ellan N/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Ellan N/Scenes/project.unity
+    guid: fb5b6c5d8eb3ba74ab064c3dc993fe2b
   - enabled: 1
     path: Assets/Xavier M/Scenes/Xavier Mackay Scene.unity
     guid: 16f3ff04a6768a04cb2513a1c3006d72
