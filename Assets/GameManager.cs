@@ -27,15 +27,20 @@ public class GameManager : MonoBehaviour
         LevelCompleteCheck();
         UpdateGUI();
         PlayAudioSamples();
-
     }
 
     private void LevelCompleteCheck()
     {
         if (currentPickups >= maxPickups)
+        {
             levelComplete = true;
+        }
+            
         else
+        {
             levelComplete = false;
+        }
+            
     }
     private void UpdateGUI()
     {

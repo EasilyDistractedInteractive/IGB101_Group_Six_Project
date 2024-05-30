@@ -6,6 +6,11 @@ public class YumpCollect : MonoBehaviour
 {
     public GameObject YumpZone;
 
+    void Start()
+    {
+        
+    }
+
     private void OnTriggerEnter(Collider otherObject)
     {
         if (otherObject.transform.tag == "Player")
