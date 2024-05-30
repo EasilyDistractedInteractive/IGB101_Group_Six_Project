@@ -46,8 +46,7 @@ public class YumpTrigger : MonoBehaviour
 
         if (gameManager.currentPickups >= gameManager.maxPickups)
         {
-            Debug.Log("Fishing Spot");
-            Instantiate(fishingSpot, new Vector3(43, 10, 8), Quaternion.Euler(0, 0, 0));
+            Instantiate(fishingSpot, new Vector3(43, 10, 8), Quaternion.Euler(-90, 0, 0));
         }
 
         Destroy(this.gameObject);
