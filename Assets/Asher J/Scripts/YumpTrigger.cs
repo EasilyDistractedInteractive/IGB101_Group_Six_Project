@@ -22,14 +22,15 @@ public class YumpTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        YumpCheck();
+        //YumpCheck();
     }
 
     private void OnTriggerEnter(Collider otherObject)
     {
         if (otherObject.transform.tag == "Player")
         {
-            CanYump = true;
+            Instantiate(yump, transform.position + new Vector3(0, 2, 0), Quaternion.Euler(0, 0, 0));
+            Invoke("ZoneDestroy", 7);
         }
     }
     private void OnTriggerExit(Collider otherObject)
@@ -54,7 +55,7 @@ public class YumpTrigger : MonoBehaviour
 
     private void YumpCheck()
     {
-        if (Input.GetKeyDown(KeyCode.E) && CanYump == true)
+        if (CanYump == true)
         {
             Instantiate(yump, transform.position + new Vector3(0,2,0), Quaternion.Euler(0,0,0));
             Invoke("ZoneDestroy", 7);
